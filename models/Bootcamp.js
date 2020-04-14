@@ -40,11 +40,9 @@ const BotcampSchema = new mongoose.Schema({
     type: {
       type: String, // Don't do `{ location: { type: String } }`
       enum: ['Point'], // 'location.type' must be 'Point'
-      required: false,
     },
     coordinates: {
       type: [Number],
-      required: false,
       index: '2dsphere',
     },
     formattedAddress: String,
