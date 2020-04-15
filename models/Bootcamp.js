@@ -96,4 +96,10 @@ const BotcampSchema = new mongoose.Schema({
   },
 });
 
+// Create bootcamp slug from name
+BotcampSchema.pre('save', function (next) {
+  this.slug = this.name.toLowerCase().replace(' ', '-');
+  next();
+});
+
 module.exports = mongoose.model('Bootcamp', BotcampSchema);
