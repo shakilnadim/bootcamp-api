@@ -4,7 +4,7 @@ const asyncHandler = require('../middlewares/async');
 const ErrorResponse = require('../utils/ErrorResponse');
 
 /**
- * @desc    returns all the bootcamps
+ * @desc    returns bootcamps
  * @route   GET /api/v1/bootcamps
  * @access  Public
  */
