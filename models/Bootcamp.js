@@ -96,6 +96,11 @@ const BootcampSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
+    user: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'User',
+      required: true,
+    },
   },
   {
     toJSON: { virtuals: true },
@@ -105,7 +110,7 @@ const BootcampSchema = new mongoose.Schema(
 
 // Create bootcamp slug from name
 BootcampSchema.pre('save', function (next) {
-  this.slug = this.name.toLowerCase().replace(' ', '-');
+  this.slug = this.name.toLowerCase().split(' ').join('-');
   next();
 });
 
